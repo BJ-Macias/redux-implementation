@@ -29,6 +29,7 @@ const NuevoProducto = () => {
             return
         }
 
+        console.log("AAAAAAAAAAAAAAAAAA")
         agregarProducto({
             nombre,
             precio

@@ -15,31 +15,32 @@ import Swal from 'sweetalert2'
 
 import { IProducto } from '../models/producto'
 import { AppDispatch } from '../store'
+import { comenzarDescargaProductos } from '../reducers/productosReducer'
 
 export const crearNuevoProductoAction: any = (producto: IProducto) => {
     return async (dispatch: AppDispatch) => {
-        dispatch(agregarProducto())
-        try {
+        dispatch(comenzarDescargaProductos(true))
+        // try {
 
-            await clienteAxios.post('/productos', producto)
+        //     await clienteAxios.post('/productos', producto)
 
-            dispatch(agregarProductoExito(producto))
+        //     dispatch(agregarProductoExito(producto))
 
-            Swal.fire(
-                'Correcto',
-                'El producto se agrego correctamente',
-                'success'
-            )
-        } catch (error) {
-            console.log(error)
-            dispatch(agregarProductoError(true))
+        //     Swal.fire(
+        //         'Correcto',
+        //         'El producto se agrego correctamente',
+        //         'success'
+        //     )
+        // } catch (error) {
+        //     console.log(error)
+        //     dispatch(agregarProductoError(true))
 
-            Swal.fire({
-                icon: 'error',
-                title: 'Hubo un error',
-                text: 'Hubo un error, intentalo de nuevo'
-            })
-        }
+        //     Swal.fire({
+        //         icon: 'error',
+        //         title: 'Hubo un error',
+        //         text: 'Hubo un error, intentalo de nuevo'
+        //     })
+        // }
     }
 }
 
